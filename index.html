@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helen Klein | Sistema de Perfis Comportamentais & Vocação Cristã</title>
+  
+  <!-- Google Fonts: Great Vibes, Cinzel, Cormorant Garamond, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-midnight: #0b1120;
+      --bg-card: rgba(18, 27, 49, 0.75);
+      --bg-card-hover: rgba(28, 41, 74, 0.85);
+      --bg-surface: #0f172a;
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f9e8a2 50%, #aa820a 100%);
+      --gold-border: rgba(212, 175, 55, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-gold: #e6ca65;
+      --accent-sage: #38bdf8;
+      --font-cursive: 'Great Vibes', 'Alex Brush', cursive;
+      --font-title: 'Cinzel', serif;
+      --font-quote: 'Cormorant Garamond', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-midnight);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Utilitários & Tipografia */
+    .cursive-name {
+      font-family: var(--font-cursive);
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.45);
+      display: inline-block;
+      line-height: 1.1;
+    }
+
+    .cursive-subtitle {
+      font-family: var(--font-cursive);
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      display: block;
+      margin-top: -0.3rem;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    }
+
+    h1, h2, h3, h4, .font-cinzel {
+      font-family: var(--font-title);
+      letter-spacing: 0.04em;
+    }
+
+    .gold-gradient-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header & Navegação */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 0.85rem 0;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-block {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: var(--transition);
+      cursor: pointer;
+      padding: 0.5rem 0.2rem;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold-light);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold-gradient);
+      border-radius: 2px;
+    }
+
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #0b1120;
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      border-radius: 9999px;
+      border: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.55);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline-gold:hover {
+      background: rgba(212, 175, 55, 0.12);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.25rem;
+      border-radius: 9999px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-signature-box {
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .signature-badge {
+      background: rgba(18, 27, 49, 0.9);
+      border: 1px solid var(--gold-border);
+      padding: 1.2rem 2.8rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+      display: inline-block;
+    }
+
+    /* Tabs de Navegação Principal */
+    .system-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 2.5rem 0 3.5rem;
+      position: sticky;
+      top: 80px;
+      z-index: 90;
+      background: rgba(11, 17, 32, 0.92);
+      padding: 0.8rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      background: var(--gold-gradient);
+      color: #0b1120;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Cards e Glassmorphism */
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold-gradient);
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      font-size: 1.05rem;
+    }
+
+    /* ENGINE DO TESTE VOCACIONAL */
+    .quiz-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .quiz-progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--gold-gradient);
+      border-radius: 9999px;
+      transition: width 0.4s ease;
+      width: 12.5%;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .question-badge {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .question-scenario {
+      font-family: var(--font-quote);
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #ffffff;
+      margin-bottom: 2rem;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .option-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .option-card:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--gold-primary);
+      transform: translateX(4px);
+    }
+
+    .option-card.selected {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+    }
+
+    .option-letter {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold-light);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .option-card.selected .option-letter {
+      background: var(--gold-gradient);
+      color: #0b1120;
+      font-weight: 800;
+    }
+
+    .option-text {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .quiz-nav-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2.5rem;
+      align-items: center;
+    }
+
+    /* RESULTADO DO TESTE / RELATÓRIO EXECUTIVO */
+    .report-card {
+      background: rgba(15, 23, 42, 0.95);
+      border: 2px solid var(--gold-primary);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 175, 55, 0.2);
+    }
+
+    .report-header-banner {
+      text-align: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .report-grid-scores {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .score-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .score-box.highlight {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .score-percent {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-title);
+      margin: 0.25rem 0;
+    }
+
+    .verse-anchor {
+      background: rgba(212, 175, 55, 0.08);
+      border-left: 4px solid var(--gold-primary);
+      padding: 1.5rem 1.8rem;
+      border-radius: 0 14px 14px 0;
+      margin: 2rem 0;
+      font-family: var(--font-quote);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    .verse-ref {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      display: block;
+      letter-spacing: 0.05em;
+    }
+
+    /* OS 4 ARQUÉTIPOS BÍBLICOS */
+    .archetypes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .archetype-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 2.2rem 1.8rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .archetype-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.15);
+    }
+
+    .archetype-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-disc {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* MÓDULO INTELIGÊNCIA EMOCIONAL CRISTÃ */
+    .ie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .ie-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 16px;
+      padding: 2rem 1.6rem;
+    }
+
+    .ie-num {
+      font-family: var(--font-title);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    /* GERADOR DEVOCIONAL / COACHING */
+    .coach-tool-box {
+      background: rgba(18, 27, 49, 0.9);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0 2rem;
+      justify-content: center;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .pill-btn:hover, .pill-btn.active {
+      background: var(--gold-gradient);
+      color: #0b1120;
+      font-weight: 700;
+      border-color: transparent;
+    }
+
+    .card-revelation {
+      background: rgba(11, 17, 32, 0.95);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PALESTRAS & MENTORIA HELEN KLEIN */
+    .talks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .talk-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .talk-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+    }
+
+    .talk-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* FORMULÁRIO DE CONTATO / AGENDAMENTO */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--gold-border);
+      background: #080c18;
+      padding: 4rem 0 2.5rem;
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .footer-signature {
+      font-family: var(--font-cursive);
+      font-size: 3.5rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Print Styles para o Dossiê */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      header, .system-tabs, .quiz-nav-btns, .btn-gold, footer, .no-print {
+        display: none !important;
+      }
+      .report-card {
+        border: 2px solid #000 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #000 !important;
+        padding: 1rem !important;
+      }
+      .verse-anchor {
+        background: #f4f4f4 !important;
+        color: #000 !important;
+        border-left: 4px solid #333 !important;
+      }
+      .score-box {
+        background: #f9f9f9 !important;
+        border: 1px solid #ccc !important;
+        color: #000 !important;
+      }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .cursive-name {
+        font-size: 2.5rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .system-tabs {
+        border-radius: 16px;
+        top: 65px;
+      }
+      .tab-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.8rem;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .glass-card {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-container">
+      <a href="#hero" class="brand-block">
+        <span class="cursive-name" style="font-size: 2.2rem;">Helen Klein</span>
+        <span class="cursive-subtitle" style="font-size: 1.25rem;">mentora cristã</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a class="nav-link active" onclick="switchTab('teste')">Teste Vocacional</a></li>
+        <li><a class="nav-link" onclick="switchTab('perfis')">Perfis Bíblicos</a></li>
+        <li><a class="nav-link" onclick="switchTab('ie')">Inteligência Emocional</a></li>
+        <li><a class="nav-link" onclick="switchTab('coaching')">Gerador Devocional</a></li>
+        <li><a class="nav-link" onclick="switchTab('palestras')">Palestras & Coaching</a></li>
+      </ul>
+
+      <button class="btn-gold" onclick="switchTab('teste')">
+        <span>Fazer Avaliação</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-badge">
+        <span>👑 Mentoria Executiva & Vocação de Reino</span>
+      </div>
+
+      <div class="hero-signature-box">
+        <div class="signature-badge">
+          <div class="cursive-name">Helen Klein</div>
+          <div class="cursive-subtitle">mentora cristã</div>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        Alinhando <span class="gold-gradient-text">Perfil Comportamental, Emoções</span> & Propósito Eterno
+      </h1>
+
+      <p class="hero-subtitle">
+        Um sistema integral de <strong>Inteligência Emocional Cristã</strong>, mapeamento comportamental (DISC Bíblico)
+        e mentoria estratégica para que líderes, famílias e profissionais descubram seu chamado no Reino sem negociar seus valores inegociáveis.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="btn-gold" style="font-size: 1rem; padding: 0.9rem 2rem;" onclick="switchTab('teste')">
+          <span>Iniciar Teste de Vocação Bíblica</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-outline-gold" style="font-size: 1rem; padding: 0.9rem 1.8rem;" onclick="switchTab('perfis')">
+          <span>Conhecer os 4 Perfis do Reino</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING TAB SYSTEM BAR -->
+  <div class="container">
+    <div class="system-tabs">
+      <button class="tab-btn active" id="tab-btn-teste" onclick="switchTab('teste')">
+        <span>🧭 Teste Vocacional</span>
+      </button>
+      <button class="tab-btn" id="tab-btn-perfis" onclick="switchTab('perfis')">
+        <span>📜 4 Perfis Bíblicos</span>
+      </button>
+      <button class="tab-btn" id="tab-btn-ie" onclick="switchTab('ie')">
+        <span>🧠 Inteligência Emocional</span>
+      </button>
+      <button class="tab-btn" id="tab-btn-coaching" onclick="switchTab('coaching')">
+        <span>📖 Devocional & Coaching</span>
+      </button>
+      <button class="tab-btn" id="tab-btn-palestras" onclick="switchTab('palestras')">
+        <span>🎙️ Palestras & Mentoria</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL (TABS) -->
+  <main class="container" style="min-height: 600px; margin-bottom: 4rem;">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: TESTE VOCACIONAL & COMPORTAMENTAL -->
+    <!-- ========================================== -->
+    <section id="tab-teste" class="tab-content">
+      <div class="glass-card quiz-container" id="quiz-card">
+        
+        <!-- Vista do Questionário -->
+        <div id="quiz-view">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress"></div>
+          </div>
+
+          <div class="question-header">
+            <span class="question-badge" id="question-indicator">Etapa 1 de 8 • Decisão sob Pressão</span>
+            <span style="font-size: 0.85rem; color: var(--gold-light); font-weight: 600;">Diagnóstico Comportamental Cristão</span>
+          </div>
+
+          <h3 class="question-scenario" id="question-title">
+            Diante de uma crise inesperada ou de um grande desafio na sua carreira/ministério, qual é a sua reação imediata?
+          </h3>
+
+          <div class="options-grid" id="options-container">
+            <!-- As opções serão injetadas via JavaScript -->
+          </div>
+
+          <div class="quiz-nav-btns">
+            <button class="btn-outline-gold" id="btn-prev" onclick="prevQuestion()" style="visibility: hidden;">
+              ← Pergunta Anterior
+            </button>
+            <span style="font-size: 0.85rem; color: var(--text-muted);" id="step-helper">Selecione a resposta mais natural</span>
+            <button class="btn-gold" id="btn-next" onclick="nextQuestion()" disabled>
+              Próxima Pergunta →
+            </button>
+          </div>
+        </div>
+
+        <!-- Vista do Relatório Gerado (Oculto inicialmente) -->
+        <div id="result-view" style="display: none;">
+          <div class="report-header-banner">
+            <span class="hero-badge" style="margin-bottom: 0.75rem;">Dossiê Exclusivo de Vocação Divina</span>
+            <h2 class="section-title" id="result-archetype-name" style="margin-bottom: 0.5rem;">
+              Arquétipo Identificado
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1rem;" id="result-archetype-sub">
+              Mapeamento de Dons Espirituais & Perfil DISC Teológico
+            </p>
+          </div>
+
+          <!-- Grade de Pontuação dos 4 Fatores -->
+          <div class="report-grid-scores" id="scores-display-grid">
+            <!-- Scores calculados em JS -->
+          </div>
+
+          <!-- Versículo Âncora -->
+          <div class="verse-anchor" id="result-verse-box">
+            "Porque somos feitura sua, criados em Cristo Jesus para boas obras, as quais Deus preparou de antemão para que andássemos nelas."
+            <span class="verse-ref">Efésios 2:10</span>
+          </div>
+
+          <!-- Diagnóstico Profundo em 3 Blocos -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);">
+              <h4 style="color: var(--gold-light); font-size: 1.05rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>✨ Forças Sobrenaturais & Talentos</span>
+              </h4>
+              <p style="font-size: 0.92rem; color: var(--text-main);" id="result-talents">
+                Carregando talentos...
+              </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);">
+              <h4 style="color: #f87171; font-size: 1.05rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>⚠️ Ponto Cego & Inteligência Emocional</span>
+              </h4>
+              <p style="font-size: 0.92rem; color: var(--text-main);" id="result-blindspot">
+                Carregando pontos de desenvolvimento...
+              </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);">
+              <h4 style="color: #38bdf8; font-size: 1.05rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🚀 Trilha Vocacional no Reino & Mercado</span>
+              </h4>
+              <p style="font-size: 0.92rem; color: var(--text-main);" id="result-vocation">
+                Carregando trilha vocacional...
+              </p>
+            </div>
+          </div>
+
+          <!-- Caixa de Ações do Relatório -->
+          <div style="background: rgba(212, 175, 55, 0.08); border: 1px solid var(--gold-border); border-radius: 16px; padding: 2rem; text-align: center; margin-top: 2.5rem;">
+            <div class="cursive-name" style="font-size: 2.5rem; margin-bottom: 0.25rem;">Helen Klein</div>
+            <div class="cursive-subtitle" style="font-size: 1.3rem; margin-bottom: 1.25rem;">mentora cristã</div>
+            
+            <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem;">
+              Deseja interpretar a fundo sua devolutiva, entender sua dinâmica de adaptação e construir seu Plano de Vida e Vocação?
+            </p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <button class="btn-gold" id="btn-whatsapp-share" onclick="sendResultWhatsApp()">
+                <span>📲 Enviar Resultado no WhatsApp da Mentora</span>
+              </button>
+              <button class="btn-outline-gold" onclick="window.print()">
+                <span>🖨️ Imprimir / Salvar PDF do Dossiê</span>
+              </button>
+              <button class="btn-outline-gold" onclick="restartQuiz()">
+                <span>Refazer Teste</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: OS 4 PERFIS COMPORTAMENTAIS BÍBLICOS -->
+    <!-- ========================================== -->
+    <section id="tab-perfis" class="tab-content" style="display: none;">
+      <h2 class="section-title">A Matriz DISC <span class="gold-gradient-text">à Luz das Escrituras</span></h2>
+      <p class="section-desc">
+        Deus não nos criou em série; Ele concedeu dons e temperamentos diversos para que o Corpo de Cristo opere em harmonia e força indestrutível.
+      </p>
+
+      <div class="archetypes-grid">
+        <!-- Perfil D -->
+        <div class="archetype-card">
+          <div>
+            <div class="archetype-icon">⚔️</div>
+            <span class="badge-disc">Dominância (D) • O Conquistador Apostólico</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Neemias & Apóstolo Paulo</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+              Focado em metas, expansão, coragem inabalável e tomada de decisão rápida. Chamado para reconstruir muros caídos e abrir territórios onde ninguém pisou.
+            </p>
+            <ul style="font-size: 0.88rem; color: var(--text-main); padding-left: 1.2rem; margin-bottom: 1.2rem;">
+              <li><strong>Dom Primário:</strong> Liderança, Visão Estratégica & Rompimento.</li>
+              <li><strong>Força:</strong> Resiliência sob ataque e determinação férrea.</li>
+              <li><strong>Risco Emocional:</strong> Impaciência, aspereza e atropelar o tempo dos outros.</li>
+              <li><strong>Virtude a Desenvolver:</strong> Mansidão e Amor Ágape (1 Co 13:4).</li>
+            </ul>
+          </div>
+          <div class="verse-anchor" style="margin: 0.5rem 0 0; font-size: 0.95rem; padding: 0.8rem 1rem;">
+            "O Deus dos céus é quem nos dará bom êxito; nós, seus servos, nos levantaremos e edificaremos." (Ne 2:20)
+          </div>
+        </div>
+
+        <!-- Perfil I -->
+        <div class="archetype-card">
+          <div>
+            <div class="archetype-icon">🕊️</div>
+            <span class="badge-disc">Influência (I) • O Arauto Inspirador</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Davi & Apóstolo Pedro</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+              Focado em pessoas, celebração, fé contagiante e oratória viva. Chamado para tocar corações, compor louvores e mobilizar multidões para a glória de Deus.
+            </p>
+            <ul style="font-size: 0.88rem; color: var(--text-main); padding-left: 1.2rem; margin-bottom: 1.2rem;">
+              <li><strong>Dom Primário:</strong> Exortação, Louvor, Evangelismo & Comunicação.</li>
+              <li><strong>Força:</strong> Empatia instantânea, carisma e entusiasmo sobrenatural.</li>
+              <li><strong>Risco Emocional:</strong> Busca por aplauso humano e desorganização prática.</li>
+              <li><strong>Virtude a Desenvolver:</strong> Domínio próprio e profundidade (Gl 1:10).</li>
+            </ul>
+          </div>
+          <div class="verse-anchor" style="margin: 0.5rem 0 0; font-size: 0.95rem; padding: 0.8rem 1rem;">
+            "Celebrai com júbilo ao Senhor, todas as terras. Servi ao Senhor com alegria!" (Sl 100:1-2)
+          </div>
+        </div>
+
+        <!-- Perfil S -->
+        <div class="archetype-card">
+          <div>
+            <div class="archetype-icon">🛡️</div>
+            <span class="badge-disc">Estabilidade (S) • O Pastor Consolador</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Barnabé & Rute</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+              Focado em acolhimento, escuta profunda, lealdade e paz interior (Shalom). O porto seguro das famílias e o alicerce paciente dos ministérios saudáveis.
+            </p>
+            <ul style="font-size: 0.88rem; color: var(--text-main); padding-left: 1.2rem; margin-bottom: 1.2rem;">
+              <li><strong>Dom Primário:</strong> Pastoreio, Pacificação, Apoio e Intercessão.</li>
+              <li><strong>Força:</strong> Serenidade inalterável, fidelidade e acolhimento de dores.</li>
+              <li><strong>Risco Emocional:</strong> Medo de confrontos necessários e passividade.</li>
+              <li><strong>Virtude a Desenvolver:</strong> Santa ousadia e posicionamento firme (Pv 28:1).</li>
+            </ul>
+          </div>
+          <div class="verse-anchor" style="margin: 0.5rem 0 0; font-size: 0.95rem; padding: 0.8rem 1rem;">
+            "Bem-aventurados os pacificadores, porque serão chamados filhos de Deus." (Mt 5:9)
+          </div>
+        </div>
+
+        <!-- Perfil C -->
+        <div class="archetype-card">
+          <div>
+            <div class="archetype-icon">📜</div>
+            <span class="badge-disc">Conformidade (C) • O Mestre da Verdade</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Lucas & Esdras</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+              Focado em exatidão, verdade bíblica, ordem, zelo ético e excelência processual. O historiador minucioso e o guardião da sã doutrina.
+            </p>
+            <ul style="font-size: 0.88rem; color: var(--text-main); padding-left: 1.2rem; margin-bottom: 1.2rem;">
+              <li><strong>Dom Primário:</strong> Ensino, Doutrina, Governança & Administração.</li>
+              <li><strong>Força:</strong> Pesquisa exaustiva, justiça inegociável e integridade.</li>
+              <li><strong>Risco Emocional:</strong> Perfeccionismo paralisante e legalismo excessivo.</li>
+              <li><strong>Virtude a Desenvolver:</strong> Graça abundante e flexibilidade (2 Co 3:6).</li>
+            </ul>
+          </div>
+          <div class="verse-anchor" style="margin: 0.5rem 0 0; font-size: 0.95rem; padding: 0.8rem 1rem;">
+            "Porque Esdras tinha preparado o seu coração para buscar a lei do Senhor e para a cumprir." (Ed 7:10)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: INTELIGÊNCIA EMOCIONAL CRISTÃ -->
+    <!-- ========================================== -->
+    <section id="tab-ie" class="tab-content" style="display: none;">
+      <h2 class="section-title">Os 4 Pilares da <span class="gold-gradient-text">Inteligência Emocional Cristã</span></h2>
+      <p class="section-desc">
+        Inteligência Emocional na Bíblia não é autoajuda egoísta: é a submissão dos nossos sentimentos ao Espírito Santo para manifestar o caráter de Cristo.
+      </p>
+
+      <div class="ie-grid">
+        <div class="ie-card">
+          <div class="ie-num">01</div>
+          <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Autoconsciência Diante do Criador</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+            A capacidade de enxergar suas próprias fraquezas e fortalezas sem máscaras, orando como o salmista por um coração limpo.
+          </p>
+          <div class="verse-anchor" style="margin: 0; font-size: 0.9rem; padding: 0.75rem;">
+            "Sonda-me, ó Deus, e conhece o meu coração; prova-me, e conhece os meus pensamentos." (Sl 139:23)
+          </div>
+        </div>
+
+        <div class="ie-card">
+          <div class="ie-num">02</div>
+          <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Domínio Próprio & Gestão de Impulsos</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Não ser refém da raiva, do medo ou do desespero. Governar a si mesmo antes de desejar governar qualquer projeto ou ministério.
+          </p>
+          <div class="verse-anchor" style="margin: 0; font-size: 0.9rem; padding: 0.75rem;">
+            "Melhor é o que domina o seu espírito do que aquele que toma uma cidade." (Pv 16:32)
+          </div>
+        </div>
+
+        <div class="ie-card">
+          <div class="ie-num">03</div>
+          <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Empatia Ágape & Conexão Restauradora</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Chorar com os que choram e alegrar-se com os que se alegram. Ouvir com o coração e liderar pessoas com graça e misericórdia.
+          </p>
+          <div class="verse-anchor" style="margin: 0; font-size: 0.9rem; padding: 0.75rem;">
+            "Não atente cada um somente para o que é seu, mas cada qual também para o dos outros." (Fp 2:4)
+          </div>
+        </div>
+
+        <div class="ie-card">
+          <div class="ie-num">04</div>
+          <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">Governança de Propósito & Sabedoria</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Tomar decisões alinhadas à eternidade. Saber dizer "não" para boas oportunidades a fim de dizer "sim" para o propósito soberano.
+          </p>
+          <div class="verse-anchor" style="margin: 0; font-size: 0.9rem; padding: 0.75rem;">
+            "E, se algum de vós tem falta de sabedoria, peça-a a Deus, que a todos dá liberalmente." (Tg 1:5)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: GERADOR DEVOCIONAL / COACHING -->
+    <!-- ========================================== -->
+    <section id="tab-coaching" class="tab-content" style="display: none;">
+      <h2 class="section-title">Oráculo de Sabedoria & <span class="gold-gradient-text">Coaching Devocional</span></h2>
+      <p class="section-desc">
+        Selecione o desafio que você ou seu coachee está enfrentando hoje e receba uma palavra profética, um diagnóstico emocional e uma Pergunta Poderosa de Sabedoria.
+      </p>
+
+      <div class="coach-tool-box">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-light); font-weight: 700;">
+            Qual desafio você deseja trabalhar nesta sessão?
+          </span>
+        </div>
+
+        <div class="filter-pills">
+          <button class="pill-btn active" onclick="loadPrompt('ansiedade')">🌪️ Ansiedade & Decisões Difíceis</button>
+          <button class="pill-btn" onclick="loadPrompt('vocacao')">🧭 Incerteza Vocacional / Transição</button>
+          <button class="pill-btn" onclick="loadPrompt('lideranca')">👑 Conflitos de Liderança & Equipe</button>
+          <button class="pill-btn" onclick="loadPrompt('burnout')">🔋 Cansaço Espiritual & Sobrecarga</button>
+          <button class="pill-btn" onclick="loadPrompt('coragem')">🦁 Medo de Fracassar & Falta de Ousadia</button>
+          <button class="pill-btn" onclick="loadPrompt('perdao')">❤️ Mágoas do Passado & Cura Relacional</button>
+        </div>
+
+        <div class="card-revelation" id="revelation-box" style="display: block;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.75rem;">
+            <span id="prompt-tag" style="color: var(--gold-light); font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
+              Trilha de Alinhamento
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Mentoria Helen Klein</span>
+          </div>
+
+          <div class="verse-anchor" id="prompt-verse" style="margin-top: 0;">
+            "Não andeis ansiosos de coisa alguma; em tudo, porém, sejam conhecidas diante de Deus as vossas petições, pela oração e pela súplica, com ações de graças."
+            <span class="verse-ref">Filipenses 4:6-7</span>
+          </div>
+
+          <div style="margin: 1.5rem 0;">
+            <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 0.4rem;">💡 Diagnóstico de Inteligência Emocional</h4>
+            <p id="prompt-diagnosis" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              A ansiedade no líder geralmente nasce da ilusão de que o controle do futuro repousa sobre seus próprios ombros. Quando você tenta antecipar cenários sem ancorar a confiança na soberania divina, sua amígdala cerebral assume o comando e gera paralisia ou impulsividade.
+            </p>
+          </div>
+
+          <div style="background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold-border); border-radius: 12px; padding: 1.25rem; margin-top: 1.5rem;">
+            <h4 style="color: var(--gold-light); font-size: 1rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+              <span>❓ Pergunta Poderosa de Sabedoria (PPS)</span>
+            </h4>
+            <p id="prompt-question" style="color: #fff; font-weight: 600; font-size: 1rem; font-style: italic;">
+              "Qual é a verdade que Deus já falou a seu respeito que o seu medo atual está tentando calar?"
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; text-align: right;">
+            <button class="btn-outline-gold" onclick="copyPromptContent()">
+              📋 Copiar Reflexão para Mentoria
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: PALESTRAS & MENTORIA HELEN KLEIN -->
+    <!-- ========================================== -->
+    <section id="tab-palestras" class="tab-content" style="display: none;">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <div class="cursive-name" style="font-size: 4rem;">Helen Klein</div>
+        <div class="cursive-subtitle" style="font-size: 2rem; margin-bottom: 1.5rem;">mentora cristã</div>
+        <h2 class="section-title">Palestras Corporativas & <span class="gold-gradient-text">Mentoria de Alto Impacto</span></h2>
+        <p class="section-desc">
+          Levando clareza, cura emocional e ativação de propósito para eventos, igrejas, diretorias e conferências de liderança.
+        </p>
+      </div>
+
+      <div class="talks-grid">
+        <div class="talk-card">
+          <div class="talk-tag">Palestra Magna • Liderança</div>
+          <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.75rem;">O DNA do Chamado: Identidade & Perfil</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Como descobrir sua vocação natural, dominar seus pontos cegos comportamentais e liderar pessoas com a autoridade de quem sabe quem é em Deus.
+          </p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-tag">Workshop Imersivo • IE</div>
+          <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.75rem;">Inteligência Emocional com Domínio Próprio</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Treinamento prático de gestão de estresse, comunicação não violenta sob a Graça e fortalecimento do Fruto do Espírito para líderes e gestores.
+          </p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-tag">Conferência • Família & Carreira</div>
+          <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.75rem;">A Mulher Sábia & o Sucesso Integral</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Harmonizando carreira, casamento, maternidade e devoção profunda. Construindo um legado de paz sem se perder pelo esgotamento.
+          </p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-tag">Mentoria Executiva VIP</div>
+          <h3 style="color: #fff; font-size: 1.25rem; margin-bottom: 0.75rem;">Programa de Acompanhamento Individual</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            Sessões quinzenais focadas em planejamento de vida, inteligência emocional aplicada, transição de carreira e blindagem espiritual.
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulário de Contratação -->
+      <div class="glass-card" style="max-width: 780px; margin: 0 auto;">
+        <h3 style="font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; text-align: center;">
+          Solicitar Palestra ou Mentoria com Helen Klein
+        </h3>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 2rem; font-size: 0.95rem;">
+          Preencha os dados abaixo para receber nossa proposta executiva ou agendar sua sessão diagnóstica.
+        </p>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="form-name" required placeholder="Seu nome" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp com DDD</label>
+              <input type="tel" class="form-control" id="form-whatsapp" required placeholder="(XX) 99999-9999" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tipo de Interesse</label>
+            <select class="form-control" id="form-interest">
+              <option value="Mentoria Individual VIP (10 Sessões)">Mentoria Individual VIP (10 Sessões)</option>
+              <option value="Palestra em Igreja ou Congresso">Palestra em Igreja ou Congresso</option>
+              <option value="Treinamento Corporativo de Inteligência Emocional">Treinamento Corporativo de Inteligência Emocional</option>
+              <option value="Devolutiva Completa do Teste Vocacional">Devolutiva Completa do Teste Vocacional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Mensagem ou Detalhes do Evento</label>
+            <textarea class="form-control" id="form-message" rows="3" placeholder="Conte um pouco sobre suas expectativas, data prevista ou cidade..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; font-size: 1rem; padding: 1rem;">
+            <span>Enviar Solicitação via WhatsApp</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-signature">Helen Klein</div>
+      <div class="cursive-subtitle" style="font-size: 1.8rem; margin-top: -1rem; margin-bottom: 1.5rem;">mentora cristã</div>
+
+      <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 650px; margin: 0 auto 2rem;">
+        Integrando Ciência Comportamental, Inteligência Emocional e a Eterna Verdade Bíblica para destravar o chamado soberano na sua vida, família e ministério.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
+        <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">• DISC Teológico</span>
+        <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">• Coaching Sistêmico Cristão</span>
+        <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">• Inteligência Emocional & Shalom</span>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; font-size: 0.8rem; color: #64748b;">
+        © 2026 Helen Klein • Todos os direitos reservados. Sistema desenvolvido com excelência para glória de Deus.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DO SISTEMA INTERATIVO -->
+  <script>
+    // 1. BANCO DE PERGUNTAS DO TESTE VOCACIONAL CRISTÃO (8 CENÁRIOS SITUACIONAIS)
+    const questions = [
+      {
+        scenario: "Tomada de Decisão sob Pressão Ministerial ou Profissional",
+        title: "Diante de uma crise inesperada ou de um projeto que precisa sair do papel com urgência, qual é o seu posicionamento mais espontâneo?",
+        options: [
+          { text: "Assumo o comando imediato, decido com firmeza e oriento todos na direção de ação mais rápida.", type: "D" },
+          { text: "Converso com todos, trago uma palavra de esperança, entusiasmo e mobilizo o grupo pela fé e visão.", type: "I" },
+          { text: "Ouço pacientemente os envolvidos, busco preservar a paz e a harmonia, e apoio onde for necessário com constância.", type: "S" },
+          { text: "Analiso os fatos com rigor, estudo os riscos éticos e financeiros, e traço o plano mais prudente e seguro.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Sensibilidade & Incômodo Espiritual",
+        title: "Qual situação mais incomoda seu espírito e te faz sentir que precisa intervir?",
+        options: [
+          { text: "Ver pessoas passivas, lentas, conformadas com a ruína e com medo de agir.", type: "D" },
+          { text: "Ambientes frios, isolamento, falta de comunhão e ver alguém se sentindo rejeitado.", type: "I" },
+          { text: "Brigas desnecessárias, grosseria, desrespeito às famílias e desamparo aos mais fracos.", type: "S" },
+          { text: "Desordem moral, ensino superficial, injustiça e quebra de princípios éticos claros.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Aconselhamento & Cuidado",
+        title: "Quando um irmão ou colega te procura chorando com um grande dilema na vida, como você naturalmente o ajuda?",
+        options: [
+          { text: "Mostro a ele que é hora de reagir, dou um conselho direto e o desafio a dar o primeiro passo prático.", type: "D" },
+          { text: "Levanto seu ânimo com palavras de vida, oro com paixão e mostro as grandes promessas que Deus tem para ele.", type: "I" },
+          { text: "Dou um abraço sincero, escuto sem pressa, ofereço meu ombro amigo e garanto que estarei ao seu lado.", type: "S" },
+          { text: "Abro a Bíblia, mostro com precisão o que as Escrituras dizem sobre aquela situação e oriento com prudência.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Trabalho em Equipe & Papel no Corpo",
+        title: "Em um comitê de liderança ou equipe de trabalho, em qual papel você se sente mais realizado?",
+        options: [
+          { text: "Sendo o pioneiro que abre caminhos, cobra resultados e lidera o rompimento.", type: "D" },
+          { text: "Sendo o comunicador que articula parcerias, anima o grupo e dá voz ao projeto.", type: "I" },
+          { text: "Sendo o facilitador de bastidores que sustenta a rotina, cuida das pessoas e mantém a estabilidade.", type: "S" },
+          { text: "Sendo o arquiteto que revisa a qualidade, cuida das normas, processos e garante a perfeição técnica.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Dons & Vocação de Reino",
+        title: "Se pudesse escolher hoje sua maior dedicação para os próximos anos, onde colocaria seu coração?",
+        options: [
+          { text: "Empreender projetos de grande porte, liderar homens e mulheres e conquistar novos territórios para Deus.", type: "D" },
+          { text: "Ministrar palestras, louvor, aconselhamento comunicativo, discipulado de massa e influência pública.", type: "I" },
+          { text: "Pastorear famílias, atuar em capelania, acolhimento de feridos e fortalecimento de lares em paz.", type: "S" },
+          { text: "Escrever livros, ministrar teologia bíblica profunda, gerir instituições com governança e integridade.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Inteligência Emocional & Domínio Próprio",
+        title: "Qual virtude do Fruto do Espírito (Gl 5:22) você sente maior necessidade de cultivar para não tropeçar no seu ponto cego?",
+        options: [
+          { text: "Mansidão e longanimidade — para não atropelar pessoas nem exigir dos outros o meu ritmo acelerado.", type: "D" },
+          { text: "Domínio próprio e foco — para não me perder querendo agradar a todos e esquecer o que é essencial.", type: "I" },
+          { text: "Ousadia e coragem — para não fugir de confrontos necessários e me posicionar com autoridade quando preciso.", type: "S" },
+          { text: "Graça e tolerância — para não ser excessivamente crítico com as imperfeições alheias ou paralisado pelo perfeccionismo.", type: "C" }
+        ]
+      },
+      {
+        scenario: "Reação a Projetos Grandiosos",
+        title: "Quando surge um chamado ou projeto novo que parece maior do que suas forças, qual é o seu primeiro pensamento?",
+        options: [
+          { text: "'O mar vai se abrir na caminhada! Vamos avançar agora mesmo que a vitória é nossa.'", type: "D" },
+          { text: "'Que visão gloriosa! Quem são as pessoas apaixonadas que vamos convidar para sonhar conosco?'", type: "I" },
+          { text: "'Como isso vai impactar a paz da nossa família e a saúde emocional de quem está caminhando conosco?'", type: "S" },
+          { text: "'Quais são os custos, o cronograma e os riscos envolvidos antes de darmos o primeiro passo?'", type: "C" }
+        ]
+      },
+      {
+        scenario: "Clamor & Vida de Oração",
+        title: "Qual tem sido o clamor mais sincero da sua oração no secreto?",
+        options: [
+          { text: "'Senhor, alarga minhas fronteiras, concede-me ousadia e autoridade para derrubar gigantes.'", type: "D" },
+          { text: "'Senhor, unge meus lábios com Tua graça para que a minha vida inspire e cure muitas almas.'", type: "I" },
+          { text: "'Senhor, faz de mim um instrumento do Teu Shalom, guardando meu lar e meu coração na Tua paz.'", type: "S" },
+          { text: "'Senhor, dá-me a sabedoria de Salomão e discernimento espiritual para ensinar a verdade com retidão.'", type: "C" }
+        ]
+      }
+    ];
+
+    // DADOS DOS 4 ARQUÉTIPOS DO REINO
+    const archetypesData = {
+      D: {
+        name: "Arquétipo Apostólico • O Conquistador de Muros",
+        biblicalModel: "Neemias & Apóstolo Paulo",
+        verse: "\"O Deus dos céus é quem nos dará bom êxito; nós, seus servos, nos levantaremos e edificaremos.\" — Neemias 2:20",
+        talents: "Capacidade extraordinária de liderança executiva, assertividade, visão estratégica de longo alcance, coragem diante da oposição e velocidade de execução. Você não se intimida com gigantes.",
+        blindspot: "Risco de impaciência, fala cortante sob estresse e dificuldade em desacelerar para ouvir os que têm ritmo mais calmo. Cultive a mansidão e a compaixão ativa (1 Co 13).",
+        vocation: "Empreendedorismo de Reino, Liderança de Negócios e Ministérios, Direção Executiva, Gestão de Crises e Projetos de Rompimento Institucional."
+      },
+      I: {
+        name: "Arquétipo Profético • O Arauto da Esperança",
+        biblicalModel: "Davi, Pedro & Miriã",
+        verse: "\"Celebrai com júbilo ao Senhor, todas as terras. Servi ao Senhor com alegria e apresentai-vos a ele com cântico!\" — Salmos 100:1-2",
+        talents: "Carisma contagiante, facilidade para falar em público, sensibilidade para inspirar a fé dos desanimados, louvor e talento nato para criar redes de relacionamentos sinceros.",
+        blindspot: "Sensibilidade excessiva à aprovação humana, dispersão de energia em muitas ideias simultâneas e aversão a rotinas minuciosas. Fortaleça o domínio próprio e o silêncio com Deus.",
+        vocation: "Palestras, Coaching de Comunicação, Louvor, Evangelismo Criativo, Discipulado Motivacional, Vendas Consultivas e Mobilização Social."
+      },
+      S: {
+        name: "Arquétipo Pastoral • O Guardião do Shalom",
+        biblicalModel: "Barnabé (Filho da Consolação), Rute & Priscila",
+        verse: "\"Bem-aventurados os pacificadores, porque serão chamados filhos de Deus.\" — Mateus 5:9",
+        talents: "Escuta curadora, lealdade inabalável, capacidade de mediar conflitos e trazer a paz de Cristo aos lares conturbados. Você é o porto seguro e o alicerce fiel por onde passa.",
+        blindspot: "Tendência a engolir mágoas para evitar atritos, lentidão diante de mudanças bruscas e hesitação em cobrar posicionamentos firmes. Peça a Deus coragem para se impor quando a verdade exigir.",
+        vocation: "Pastoreio, Mentoria Familiar e de Casais, Mediação, Psicologia/Aconselhamento, Gestão de Pessoas, Capelania e Suporte Comunitário."
+      },
+      C: {
+        name: "Arquétipo Doutoral • O Arquiteto da Verdade",
+        biblicalModel: "Lucas (o Médico Amado), Salomão & Esdras",
+        verse: "\"Porque Esdras tinha preparado o seu coração para buscar a lei do Senhor e para a cumprir e para ensinar.\" — Esdras 7:10",
+        talents: "Rigor investigativo, integridade inegociável, pensamento analítico e capacidade de estruturar doutrinas, processos, métodos e finanças com precisão cirúrgica.",
+        blindspot: "Perfeccionismo que paralisa tomadas de decisão, crítica rigorosa a quem erra e tendência ao legalismo formal. Lembre-se de que a misericórdia triunfa sobre o juízo (Tg 2:13).",
+        vocation: "Ensino Teológico, Governança Corporativa, Gestão Financeira, Compliance, Pesquisa, Auditoria e Estruturação de Métodos Pedagógicos."
+      }
+    };
+
+    // ESTADO DO TESTE
+    let currentQuestionIdx = 0;
+    let answers = []; // array de tipos selecionados ('D', 'I', 'S', 'C')
+
+    function initQuiz() {
+      currentQuestionIdx = 0;
+      answers = new Array(questions.length).fill(null);
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQuestionIdx];
+      const progressPercent = ((currentQuestionIdx + 1) / questions.length) * 100;
+      
+      document.getElementById('quiz-progress').style.width = `${progressPercent}%`;
+      document.getElementById('question-indicator').innerText = `Etapa ${currentQuestionIdx + 1} de ${questions.length} • ${q.scenario}`;
+      document.getElementById('question-title').innerText = q.title;
+
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      q.options.forEach((opt, idx) => {
+        const isSelected = answers[currentQuestionIdx] === opt.type;
+        const card = document.createElement('div');
+        card.className = `option-card ${isSelected ? 'selected' : ''}`;
+        card.onclick = () => selectOption(opt.type);
+
+        card.innerHTML = `
+          <div class="option-letter">${letters[idx]}</div>
+          <div class="option-text">${opt.text}</div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Visibilidade de botões
+      document.getElementById('btn-prev').style.visibility = currentQuestionIdx > 0 ? 'visible' : 'hidden';
+      const btnNext = document.getElementById('btn-next');
+      btnNext.disabled = answers[currentQuestionIdx] === null;
+      btnNext.innerText = currentQuestionIdx === questions.length - 1 ? 'Concluir & Gerar Dossiê ✨' : 'Próxima Pergunta →';
+    }
+
+    function selectOption(type) {
+      answers[currentQuestionIdx] = type;
+      renderQuestion();
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIdx > 0) {
+        currentQuestionIdx--;
+        renderQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (answers[currentQuestionIdx] === null) return;
+
+      if (currentQuestionIdx < questions.length - 1) {
+        currentQuestionIdx++;
+        renderQuestion();
+      } else {
+        generateReport();
+      }
+    }
+
+    function generateReport() {
+      // Contagem de pontos
+      const counts = { D: 0, I: 0, S: 0, C: 0 };
+      answers.forEach(t => {
+        if (t && counts[t] !== undefined) counts[t]++;
+      });
+
+      const total = answers.length;
+      const pctD = Math.round((counts.D / total) * 100);
+      const pctI = Math.round((counts.I / total) * 100);
+      const pctS = Math.round((counts.S / total) * 100);
+      const pctC = Math.round((counts.C / total) * 100);
+
+      // Determinar perfil primário
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const primaryKey = sorted[0][0];
+      const secondaryKey = sorted[1][0];
+
+      const archetype = archetypesData[primaryKey];
+      const secArchetype = archetypesData[secondaryKey];
+
+      // Atualiza interface do resultado
+      document.getElementById('quiz-view').style.display = 'none';
+      const resultView = document.getElementById('result-view');
+      resultView.style.display = 'block';
+
+      document.getElementById('result-archetype-name').innerText = archetype.name;
+      document.getElementById('result-archetype-sub').innerText = `Modelo Bíblico Principal: ${archetype.biblicalModel} • Secundário: ${secArchetype.biblicalModel}`;
+      document.getElementById('result-verse-box').innerHTML = `
+        "${archetype.verse.split('—')[0].replace(/"/g, '').trim()}"
+        <span class="verse-ref">— ${archetype.verse.split('—')[1] ? archetype.verse.split('—')[1].trim() : ''}</span>
+      `;
+
+      document.getElementById('result-talents').innerText = archetype.talents;
+      document.getElementById('result-blindspot').innerText = archetype.blindspot;
+      document.getElementById('result-vocation').innerText = archetype.vocation;
+
+      // Grade de porcentagens
+      const scoresGrid = document.getElementById('scores-display-grid');
+      scoresGrid.innerHTML = `
+        <div class="score-box ${primaryKey === 'D' ? 'highlight' : ''}">
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-light); font-weight: 700;">Dominância (D)</div>
+          <div class="score-percent" style="color: #f87171;">${pctD}%</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Apostólico / Neemias</div>
+        </div>
+        <div class="score-box ${primaryKey === 'I' ? 'highlight' : ''}">
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-light); font-weight: 700;">Influência (I)</div>
+          <div class="score-percent" style="color: #facc15;">${pctI}%</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Profético / Davi</div>
+        </div>
+        <div class="score-box ${primaryKey === 'S' ? 'highlight' : ''}">
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-light); font-weight: 700;">Estabilidade (S)</div>
+          <div class="score-percent" style="color: #4ade80;">${pctS}%</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Pastoral / Barnabé</div>
+        </div>
+        <div class="score-box ${primaryKey === 'C' ? 'highlight' : ''}">
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-light); font-weight: 700;">Conformidade (C)</div>
+          <div class="score-percent" style="color: #38bdf8;">${pctC}%</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Doutoral / Lucas</div>
+        </div>
+      `;
+
+      // Salva no localStorage para persistência
+      localStorage.setItem('helen_klein_assessment', JSON.stringify({
+        date: new Date().toISOString(),
+        primary: primaryKey,
+        secondary: secondaryKey,
+        scores: { D: pctD, I: pctI, S: pctS, C: pctC }
+      }));
+
+      // Rola até o resultado
+      document.getElementById('quiz-card').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function restartQuiz() {
+      document.getElementById('result-view').style.display = 'none';
+      document.getElementById('quiz-view').style.display = 'block';
+      initQuiz();
+    }
+
+    function sendResultWhatsApp() {
+      const saved = JSON.parse(localStorage.getItem('helen_klein_assessment') || '{}');
+      const archetype = archetypesData[saved.primary || 'D'];
+      const text = `Olá, Helen Klein! Fiz o Teste Vocacional e de Perfil Comportamental no seu sistema.\n\n👑 *Resultado:* ${archetype.name}\n📊 *Distribuição:* D: ${saved.scores?.D}% | I: ${saved.scores?.I}% | S: ${saved.scores?.S}% | C: ${saved.scores?.C}%\n🕊️ *Modelo Bíblico:* ${archetype.biblicalModel}\n\nGostaria de agendar uma devolutiva / mentoria para aprofundar meu plano de vida e vocação!`;
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    // 2. GERADOR DEVOCIONAL / COACHING INTERATIVO
+    const promptLibrary = {
+      ansiedade: {
+        tag: "Superando Ansiedade & Pressão",
+        verse: "\"Não andeis ansiosos de coisa alguma; em tudo, porém, sejam conhecidas diante de Deus as vossas petições, pela oração e pela súplica, com ações de graças.\" — Filipenses 4:6-7",
+        diagnosis: "A ansiedade no líder geralmente nasce da ilusão de que o controle do futuro repousa sobre seus próprios ombros. Quando você tenta antecipar cenários sem ancorar a confiança na soberania divina, sua mente hiperativa gera paralisia ou decisões impulsivas.",
+        question: "\"Qual é a verdade eterna que Deus já revelou a seu respeito que o seu medo atual está tentando abafar?\""
+      },
+      vocacao: {
+        tag: "Clareza Vocacional & Transição",
+        verse: "\"Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento. Reconhece-o em todos os teus caminhos, e ele endireitará as tuas veredas.\" — Provérbios 3:5-6",
+        diagnosis: "Transições vocacionais ativam a insegurança da perda de identidade anterior. Deus muitas vezes nos retira do lugar conhecido para nos forçar a depender da Sua voz diária, e não dos nossos velhos títulos e aprovações humanas.",
+        question: "\"Se o medo de faltar recursos ou de receber críticas não existisse, qual projeto de Reino você começaria a construir hoje?\""
+      },
+      lideranca: {
+        tag: "Liderança de Paz & Resolução de Conflitos",
+        verse: "\"A resposta branda desvia o furor, mas a palavra dura suscita a ira.\" — Provérbios 15:1",
+        diagnosis: "Líderes de alta dominância tendem a tratar divergências como motim pessoal. A liderança cristã autêntica exige governança emocional: separar a dignidade da pessoa do problema técnico que precisa ser corrigido.",
+        question: "\"Você está liderando essa pessoa para provar que está certo ou para vê-la crescer e refletir Cristo?\""
+      },
+      burnout: {
+        tag: "Restauração do Shalom & Ritmo Sagrado",
+        verse: "\"Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei. Tomai sobre vós o meu jugo e aprendei de mim, que sou manso e humilde de coração; e encontrareis descanso para as vossas almas.\" — Mateus 11:28-29",
+        diagnosis: "O esgotamento em servos de Deus acontece quase sempre quando assumimos fardos que Deus nunca nos mandou carregar. O orgulho sutil nos faz acreditar que a igreja, a empresa ou a família vão desabar se nós pararmos.",
+        question: "\"Qual compromisso ou responsabilidade que não foi dada por Deus você precisa devolver em oração hoje?\""
+      },
+      coragem: {
+        tag: "Ousadia Apostólica & Quebra de Paralisia",
+        verse: "\"Não to mandei eu? Esforça-te e tem bom ânimo; não pasmes, nem te espantes; porque o Senhor, teu Deus, é contigo, por onde quer que andares.\" — Josué 1:9",
+        diagnosis: "A hesitação excessiva muitas vezes se disfarça de 'prudência santa', mas é apenas medo do fracasso. Deus nunca nos prometeu que a jornada seria livre de combates, mas prometeu Sua presença incondicional na marcha.",
+        question: "\"Qual é o primeiro passo simples, imperfeito e corajoso que você pode dar nas próximas 24 horas?\""
+      },
+      perdao: {
+        tag: "Cura Emocional & Liberação de Perdão",
+        verse: "\"Antes, sede uns para com os outros benignos, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo.\" — Efésios 4:32",
+        diagnosis: "Reter mágoas é como beber veneno esperando que a outra pessoa sofra. No coaching cristão, perdoar não é concordar com o erro do outro; é entregar a chave da prisão e escolher a liberdade de caminhar leve.",
+        question: "\"Quem é a pessoa que você precisa liberar do tribunal do seu julgamento para que o seu coração volte a ter paz?\""
+      }
+    };
+
+    function loadPrompt(key) {
+      // Atualiza botões
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const data = promptLibrary[key];
+      if (!data) return;
+
+      const box = document.getElementById('revelation-box');
+      box.style.display = 'none';
+
+      document.getElementById('prompt-tag').innerText = data.tag;
+      document.getElementById('prompt-verse').innerHTML = `
+        "${data.verse.split('—')[0].replace(/"/g, '').trim()}"
+        <span class="verse-ref">— ${data.verse.split('—')[1] ? data.verse.split('—')[1].trim() : ''}</span>
+      `;
+      document.getElementById('prompt-diagnosis').innerText = data.diagnosis;
+      document.getElementById('prompt-question').innerText = data.question;
+
+      box.style.display = 'block';
+    }
+
+    function copyPromptContent() {
+      const tag = document.getElementById('prompt-tag').innerText;
+      const verse = document.getElementById('prompt-verse').innerText;
+      const diag = document.getElementById('prompt-diagnosis').innerText;
+      const q = document.getElementById('prompt-question').innerText;
+
+      const fullText = `*MENTORIA HELEN KLEIN • DEVOCIONAL & COACHING*\n${tag}\n\n📖 ${verse}\n\n💡 *Diagnóstico de Inteligência Emocional:*\n${diag}\n\n❓ *Pergunta Poderosa de Sabedoria (PPS):*\n${q}`;
+      navigator.clipboard.writeText(fullText).then(() => {
+        alert('Reflexão copiada para a área de transferência com sucesso!');
+      });
+    }
+
+    // 3. NAVEGAÇÃO DE TABS
+    function switchTab(tabId) {
+      // Esconder todas as tabs
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+
+      // Mostrar tab atual
+      const target = document.getElementById(`tab-${tabId}`);
+      if (target) target.style.display = 'block';
+
+      const targetBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (targetBtn) targetBtn.classList.add('active');
+
+      // Scroll suave
+      window.scrollTo({ top: 380, behavior: 'smooth' });
+    }
+
+    // 4. FORMULÁRIO DE CONTATO / MENTORIA
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const zap = document.getElementById('form-whatsapp').value;
+      const interest = document.getElementById('form-interest').value;
+      const msg = document.getElementById('form-message').value;
+
+      const text = `Olá, Helen Klein! Meu nome é *${name}* (${zap}).\n\nTenho interesse em: *${interest}*.\n\n*Detalhes:* ${msg || 'Gostaria de receber informações sobre disponibilidade e valores.'}`;
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    // Iniciar na carga
+    document.addEventListener('DOMContentLoaded', () => {
+      initQuiz();
+    });
+  </script>
+</body>
+</html>
